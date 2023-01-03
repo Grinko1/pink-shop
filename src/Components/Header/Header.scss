@@ -1,0 +1,34 @@
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 12px;
+    font-weight: 700;
+}
+.header_left-block{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+}
+.header_block{
+    display: flex;
+    align-items: center;
+}
+.header-icon{
+    width: 18px;
+    margin-right: 10px;
+    height: 21px;
+}
+.pink{
+    color: var(--pink)
+}
+.header-logo_img{
+    width: 160px;
+}
+.header_right-block{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
