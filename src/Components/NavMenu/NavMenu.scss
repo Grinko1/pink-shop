@@ -10,5 +10,17 @@
 .menu_link-item{
 font-weight: 600;
 font-size: 16px;
-text-transform: capitalize;
+text-transform:uppercase;
+}
+.menu_link-item_link:hover{
+    color:var(--pink);
+}
+.menu_link-item_link{
+    text-decoration: none;
+    color:#1F1F1F;
+}
+.navbar-hr{
+    height: 1px;
+    background-color: var(--pink);
+    border: none;
 }

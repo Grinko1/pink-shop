@@ -1,0 +1,14 @@
+.search{
+    &__container{
+        width: 80%;
+        margin: auto;
+        img{
+            max-width: 500px;
+        }
+        .search-results{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+    }
+}

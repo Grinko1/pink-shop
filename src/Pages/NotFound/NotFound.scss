@@ -1,0 +1,25 @@
+.notfound{
+
+    &__imgblock{
+        position: relative;
+        height: 200px;
+        .notfound-icon{
+            max-width: 560px;
+            
+            position: absolute;
+            top: 65%;
+            left: 32%;
+          
+        
+        }
+        
+
+    }
+    .notfound-ticker{
+        position: relative;
+    }
+    .notfound-text{
+        text-align: center;
+        margin-bottom: 40px;
+    }
+}

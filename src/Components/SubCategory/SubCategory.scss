@@ -1,0 +1,13 @@
+.subcategory{
+
+    border-bottom: 1px solid var(--grey);
+    .subcategory-list{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding-inline-start: 0px;
+        .subcategory-list_item, a:hover{
+            color: var(--pink);
+        }
+    }
+}

@@ -1,0 +1,13 @@
+.order{
+    &__container{
+        width: 80%;
+        margin: auto;
+        display: flex;
+        .order-block{
+            flex: 1;
+        }
+        .cart-block{
+            flex: 1;
+        }
+    }
+}

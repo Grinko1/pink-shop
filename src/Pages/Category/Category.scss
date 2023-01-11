@@ -1,0 +1,21 @@
+.catogory-container{
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    margin-top: 65px;
+
+    .category-main{
+        display: flex;
+        margin-top: 65px;
+        .category-filter{
+            flex: 1;
+        }
+        .category-products{
+            flex: 5;
+            display: flex;
+            justify-content: space-around;
+            gap: 26px;flex-wrap: wrap;
+        }
+    }
+    
+}

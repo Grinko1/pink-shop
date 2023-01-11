@@ -1,0 +1,41 @@
+.exchange{
+    &__container{
+        width: 80%;
+        margin: auto;
+        .exchange-header{
+            max-width: 500px;
+            margin-bottom: 50px;
+        }
+        .exchange-desc{
+            display: flex;
+            flex-wrap: wrap;
+            
+            
+            
+            
+            .exchange-desc-item{
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                gap: 40px;
+                width: 50%;
+                margin-bottom: 40px;
+                img{
+                    width: 112px;
+                    // height: 90px;
+                    object-fit: contain;
+                }
+               
+                .exchange-desc-text{
+                max-width: 320px;
+                }
+            }
+            
+           
+           
+        }
+        .exchange-inst{
+            margin: auto;
+        }
+    }
+}

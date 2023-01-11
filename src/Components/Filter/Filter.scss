@@ -1,0 +1,28 @@
+.filter{
+    .filter-neader{
+font-size: 20px;
+    }
+    .filter-category{
+        .filter-category_details{
+            margin-bottom: 15px;
+            .filter-category_img{
+                width: 12px;
+                height: 10px;
+                margin-left: 10px;
+            }
+        }
+        .filter-category_details[open] > summary{
+            color:var(--pink)
+        }
+    
+    }
+    .filter-price{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        .filter-price-item{
+            display: flex;
+            gap: 6px;
+        }
+    }
+}

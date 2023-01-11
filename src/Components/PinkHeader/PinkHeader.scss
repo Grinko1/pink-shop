@@ -1,0 +1,26 @@
+.new-header__block{
+    position: relative;
+}
+.new-header-pink{
+    font-family: var(--font-cursive);
+    color:var(--pink);
+    font-size: 54px;
+    margin-left: 80px;
+}
+.new-header-doble{
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 30px;
+    position: absolute;
+    top: 9px;
+    left: 80px;
+    
+}
+.new-header-img{
+    width: 65px;
+    height: 15px;
+    position: absolute;
+    bottom: 9px;
+    left: 250px;
+   
+}

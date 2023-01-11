@@ -1,0 +1,30 @@
+.benefits{
+    max-width: 1100px;
+    display: flex;
+    margin: 0 auto 75px ;
+
+    .benefit-item{
+        flex: 1;
+        display: flex;
+        .benefit-item-left{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .benefit-item-img{
+                width: 85px;
+                object-fit: contain;
+            }
+        }
+        .benefit-item-right{
+            width: 215px;
+            .benefit-item-bolt_text{
+                font-size: 25px;
+                height: 62px;
+            }
+            .benefit-item_text{
+               font-weight: 300;
+            }
+
+        }
+    }
+}

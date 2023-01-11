@@ -1,0 +1,116 @@
+.photomenu {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    .photo-big{
+        width: 563px;
+        height: 345px;
+    }
+    .photo-small{
+        width: 274px;
+        height: 296px;
+    }
+    .pink-name{
+        position: relative;
+        text-transform: uppercase;
+        text-align: center;
+        color:white;
+        font-size: 20px;
+        font-weight: 400;
+        z-index: 100;
+        line-height: 38px;
+        bottom: 34px;
+        left: 20px;
+        .pink-name_bg{
+            position: absolute;
+        }
+       
+    }
+
+     .tshirts{
+        width: 166px;
+         position: absolute;
+         padding: 5px;
+        bottom: 34px;
+        left: 20px;
+    }
+    .pants{
+       width: 105px;
+       height: 45px;
+       position: absolute;
+       bottom: 22px;
+       right: -136px;
+       transform: rotate(-13deg);
+    }
+    .rotate-pants_name{
+        transform: rotate(-40deg);
+    }
+    .jackets{
+        width: 132px;
+        height: 45px;
+        position: absolute;
+        padding: 5px;
+        right: 35px;
+        top: -250px;
+    }
+    .dresses{
+        width: 162px;
+        height: 40px;
+        bottom: 63px;
+        left: -3px;
+        position: absolute;
+    }
+    .suits{
+        position: absolute;
+        width: 184px;
+        height: 45px;
+        bottom:-10px;
+        right: 45px;
+    }
+    .hoodie{
+        width: 134px;
+        height: 44px;
+        position: absolute;
+        bottom: 20px;
+        left: 63px;
+        transform: rotate(12deg);
+    }
+    .rotate-hoodie_name{
+        transform: rotate(32deg);
+    }
+    .photomenu-left{
+        display: grid;
+        grid-template-columns: 280px 280px;
+        grid-template-rows: auto;
+        grid-template-areas: 
+          "photo-big photo-big "
+          "photo-small photo-small_1"; 
+
+    }
+    .photomenu-right{
+        display: grid;
+        grid-template-columns: 280px 280px;
+        grid-template-rows: auto;
+        grid-template-areas: 
+          "photo-small photo-small_1"
+          "photo-big photo-big "; 
+
+    }
+    .photomenu-photo-big{
+        grid-area: photo-big;
+        position: relative;
+        
+    }
+    .photomenu-photo-small{
+      grid-area: photo-small;
+      position: relative;
+ 
+  }
+  .photomenu-photo-small_1{
+      grid-area: photo-small_1;
+      margin-left: 10px;
+      position: relative;
+  }
+}

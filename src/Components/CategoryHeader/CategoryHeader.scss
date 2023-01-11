@@ -1,0 +1,13 @@
+.categoryheader-container{
+    display: flex;
+    margin-top: 10px;
+    .categoryheader-left{
+        width: 40%;
+    }
+    .categoryheader-right{
+        width: 60%;
+        .categoryheader-right_img{
+            width: 800px;
+        }
+    }
+}

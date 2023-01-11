@@ -1,0 +1,38 @@
+.productbenefits{
+    display: flex;
+    margin-top: 30px;
+    &__left{
+        flex: 2;
+        
+        .productbenefits-item{
+           display: flex;
+           align-items: center;
+           gap: 40px;
+           margin-bottom: 40px;
+        }
+        .productbenefits-img{
+            width: 74px;
+        }
+        .productbenefits-desc{
+            font-size: 18px;
+            p{
+                text-transform: uppercase;
+                font-size: 14px;
+            }
+        }
+    }
+    .productbenefits__right{
+        flex: 1;
+       
+        .productbenefits-right-container{
+            margin: auto;
+            width: 80%;
+            h1{
+                color: var(--pink);
+            }
+            .productbenefits-inst-img{
+                width: 360px;
+            }
+        }
+    }
+}

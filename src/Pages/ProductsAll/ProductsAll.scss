@@ -1,0 +1,15 @@
+.products{
+    .products__container{
+        width: 80%;
+        margin: auto;
+        .products-header-img{
+            max-width: 500px;
+        }
+        .products-list{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+    }
+}

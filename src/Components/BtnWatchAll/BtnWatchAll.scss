@@ -1,0 +1,28 @@
+.new-card-watchall{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+   
+    
+    .new-card-watchall_bg{
+       
+        position: relative;
+    }
+    .m{
+        width: 180px;
+    }
+    .l{
+        width: 240px;
+    }
+    .new-card-watchall_text{
+        position: absolute;
+        font-family: var(--font-cursive);
+        font-size: 20px;
+        line-height: 27px;
+        color: #FFFFFF;
+        cursor: pointer;
+
+    }
+    
+}

@@ -1,0 +1,38 @@
+.card-item{
+    height: 430px;
+    width: 300px;
+    position: relative;
+    .card-item_img{
+        width: 244px;
+        height: 302px;
+        object-fit: contain;
+        cursor: pointer;
+    }
+    .card-item_hr{
+        height: 1px;
+        background-color: var(--pink);
+        border: none;
+    }
+    .card-item_icon{
+        position: absolute;
+        width: 26px;
+        top: 10px;
+        right: 15px;
+        cursor: pointer;
+    }
+    .card-item-bottom{
+        display: flex;
+        cursor: pointer;
+        .card-item-name{
+            flex: 1;
+        }
+        .card-item-price{
+            flex: 1;
+            text-align: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--pink);
+        }
+    }
+  
+}

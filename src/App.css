@@ -10,10 +10,15 @@
   --light-pink:#FFE6EF;
   --white:#FFE6EF;
   --grey:#909090;
+  margin: 0;
 }
 *{
   font-family: var(--font-montserrat);
   list-style: none;
+}
+a{
+  text-decoration: none;
+  color: var(--black);
 }
 
 

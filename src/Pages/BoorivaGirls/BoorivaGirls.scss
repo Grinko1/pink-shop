@@ -1,0 +1,39 @@
+.booriva{
+    margin-top: 30px;
+    &__container{
+        width: 80%;
+        margin: auto;
+        .booriva-header{
+            max-width: 440px;
+            &__img{
+                width: 100%;
+            }
+        }
+        .booriva-galery{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            &__column{
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+               
+                img{
+                    max-width: 370px;
+                }
+                .booriva-galery-p{
+                    max-width: 370px;
+                }
+                .booriva-galery-tag{
+                    color: var(--red);
+                }
+            }
+            .higher-block{
+                position: relative;
+                bottom: 90px;
+            }
+
+        }
+    }
+}
