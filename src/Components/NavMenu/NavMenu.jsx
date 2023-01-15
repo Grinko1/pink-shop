@@ -3,7 +3,7 @@ import './NavMenu.scss';
 
 const NavMenu = () => {
   const menuArr = [
-    {id:1, name:'Новинки', link:'products/new'},
+    {id:1, name:'Новинки', link:'/new'},
     {id:2, name:'Платья', link:'products/dresses'},
     {id:3, name:'Верх', link:'products/top'},
     {id:4, name:'Низ', link:'products/bottom'},
@@ -15,6 +15,8 @@ const NavMenu = () => {
     return (
    <nav className='navbar'>
      <ul className='menu_links'>
+
+
      {
        menuArr.map((menu) => (
          <li className='menu_link-item' key={menu.id}>

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import BtnWatchAll from '../BtnWatchAll/BtnWatchAll';
 import PinkHeader from '../PinkHeader/PinkHeader';
 import './SuitsBlock.scss';
@@ -43,7 +44,10 @@ const SuitsBlock = () => {
             </div>
             
         </div>
+        <Link to='/products'>
         <BtnWatchAll img={'/icons/watch-all.png'} text={'Cмотреть все'}/>
+        </Link>
+      
         </>
     );
 };

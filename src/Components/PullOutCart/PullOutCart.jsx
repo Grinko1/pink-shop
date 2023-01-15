@@ -1,9 +1,13 @@
-import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import BtnWatchAll from '../BtnWatchAll/BtnWatchAll';
+import CartItems from '../CartItems/CartItems';
 import './PullOutCart.scss';
 
 const PullOutCart = ({active, setActiveMenu }) => {
+
+  const {cartItems, cartTotalAmount} = useSelector(state=>state.cartItems)
+
  
     return (
         <div className={active ? 'menu active' : 'menu'} onClick={() => setActiveMenu(false)}>
@@ -16,59 +20,33 @@ const PullOutCart = ({active, setActiveMenu }) => {
             </div>
             <h1>Корзина</h1>
           </div>
-          <div className="cart_items">
-            <div className="cart-item">
-                <img className="cart-item__img" src="/img/bomber.png" alt=""/>
-                <div className="cart-item__desc">
-                    <h2>Бомбер Gone Crazy хаки</h2>
-                    <p>S — M</p>
-                    <p className="cart-item-price">2499 &#8381;</p>
+          {
+            cartItems.length == 0 ?
+            <>
+            <div className='empty-cart'>
+              <img src="/icons/emptycart.png" alt=""/>
+              <p>Твоя корзина пуста, но это никогда
+                 <br/> не поздно исправить:)</p>
 
-                </div>
-                <img className="cart-item-delete" src="/icons/pink-delete.png" alt=""/>
             </div>
-            <div className="cart-item">
-                <img className="cart-item__img" src="/img/bomber.png" alt=""/>
-                <div className="cart-item__desc">
-                    <h2>Бомбер Gone Crazy хаки</h2>
-                    <p>S — M</p>
-                    <p className="cart-item-price">2499 &#8381;</p>
-
-                </div>
-                <img className="cart-item-delete" src="/icons/pink-delete.png" alt=""/>
-            </div>
-
-            <div className="cart-item">
-                <img className="cart-item__img" src="/img/bomber.png" alt=""/>
-                <div className="cart-item__desc">
-                    <h2>Бомбер Gone Crazy хаки</h2>
-                    <p>S — M</p>
-                    <p className="cart-item-price">2499 &#8381;</p>
-
-                </div>
-                <img className="cart-item-delete" src="/icons/pink-delete.png" alt=""/>
-            </div>
-           
-
-            <div className="cart-item">
-                <img className="cart-item__img" src="/img/bomber.png" alt=""/>
-                <div className="cart-item__desc">
-                    <h2>Бомбер Gone Crazy хаки</h2>
-                    <p>S — M</p>
-                    <p className="cart-item-price">2499 &#8381;</p>
-
-                </div>
-                <img className="cart-item-delete" src="/icons/pink-delete.png" alt=""/>
-            </div>
-  
-           
-            </div>
-            <div className="cart-total">
-            Сумма заказа: . . . . . .  4 998  &#8381;
-            </div>
-            <Link to='/order' onClick={() => setActiveMenu(false)}  >
-            <BtnWatchAll img={'/icons/watch-all.png'} text={'Оформить заказ'} size={'l'}/>
+            <Link to='/'  onClick={() => setActiveMenu(false)} >
+            <BtnWatchAll img={'/icons/watch-all.png'} text={'За покупками'} size={'l'}/>
             </Link>
+  
+            </>
+            :
+            <>
+            <CartItems/>
+   
+              <div className="cart-total">
+              Сумма заказа: . . . . . . {cartTotalAmount} &#8381;
+                </div>
+          <Link to='/order' onClick={() => setActiveMenu(false)}  >
+              <BtnWatchAll img={'/icons/watch-all.png'} text={'Оформить заказ'} size={'l'}/>
+           </Link>
+            </>
+          }
+          
       
         </div>
       </div>

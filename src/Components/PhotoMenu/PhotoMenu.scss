@@ -4,6 +4,8 @@
     align-items: center;
     justify-content: center;
     gap: 15px;
+
+  
     .photo-big{
         width: 563px;
         height: 345px;
@@ -23,6 +25,9 @@
         line-height: 38px;
         bottom: 34px;
         left: 20px;
+        a{
+            color: white;
+        }
         .pink-name_bg{
             position: absolute;
         }

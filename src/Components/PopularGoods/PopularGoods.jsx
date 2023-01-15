@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import BtnWatchAll from '../BtnWatchAll/BtnWatchAll';
 import CardItem from '../CardItem/CardItem';
 import './PopularGoods.scss';
@@ -20,7 +21,10 @@ const PopularGoods = () => {
   
         </div>
       
-        <BtnWatchAll img={'/icons/popular-all.png'} text={'Cмотреть все'} />
+      <Link to='/products'>
+      <BtnWatchAll img={'/icons/popular-all.png'} text={'Cмотреть все'} />
+      </Link>
+       
         </>
     );
 };

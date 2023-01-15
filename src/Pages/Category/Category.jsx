@@ -5,8 +5,13 @@ import CardItem from '../../Components/CardItem/CardItem'
 import InstagramBlock from '../../Components/InstagramBlock/Instagram'
 import { newProducts } from '../../data/new';
 import './Category.scss';
+import { useSelector } from 'react-redux';
+
 
 const Category = () => {
+    const products = useSelector(state => state.products.products)
+    console.log(products);
+  
     return (
         <div className='catogory-container'>
             <SubCategory/>
@@ -16,8 +21,8 @@ const Category = () => {
                 <Filter/>
                 </div>
                 <div className="category-products">
-                {newProducts.map((item) => (
-                    <CardItem key={item.id} img={item.img} name={item.name} price={item.price} />
+                {products.map((item) => (
+                    <CardItem key={item.id} img={item.img} name={item.name} price={item.price} id={item.id} isFavorite={item.isFavorite} />
                 ))}
                 </div>
             </div>

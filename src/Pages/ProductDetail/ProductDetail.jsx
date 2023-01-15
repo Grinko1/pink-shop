@@ -6,10 +6,48 @@ import PinkHeader from '../../Components/PinkHeader/PinkHeader';
 import { newProducts } from '../../data/new';
 import CardItem from '../../Components/CardItem/CardItem';
 import Instagram from '../../Components/InstagramBlock/Instagram';
+import SizeTable from '../../Components/SizeTable/SizeTable';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart, cartTotal } from '../../store/cartSlice';
+import { useParams } from 'react-router';
+import { products } from '../../data/products';
 
 const ProductDetail = () => {
+    const [product, setProduct] = useState({})
     const [showDots, setShowDots] = useState(true)
     const [showText, setText] = useState(false)
+    const [openTable, setOpenTable] = useState(false)
+    const [sizes, setSizes] = useState([
+        {size:'XS-S', } ,
+         {size:'S-M', } ,
+         {size:'M-L', } ,
+         {size:'L-XL', } ])
+
+    const {id} = useParams()
+   
+
+    // const sizes = [
+    //     {size:'XS-S', active:false} ,
+    //      {size:'S-M', active:true} ,
+    //      {size:'M-L', active:false} ,
+    //      {size:'L-XL', active:false} ]
+
+
+        useEffect(() =>{
+            setProduct(products.find(i => i.id == id))      
+        } ,[id])
+   
+
+
+
+    const dispatch = useDispatch()
+
+  
+
+    const addProductToCart = () => {
+        dispatch(addToCart({...product, id:new Date().toISOString()}))
+        dispatch(cartTotal())
+    }
 
     useEffect(() => {
         if(showText){
@@ -22,42 +60,54 @@ const ProductDetail = () => {
 
     const toggleShowMore = () => {
         setText(!showText)
-        
-       
     }
+
+    const choozeSize = (i) => {
+        setProduct({...product, size : i.size})
+        const activeSize = sizes.findIndex(item => item.size === i.size)
+
+ 
+        // setSizes(sizes, sizes[activeSize].active = true)
+        i.active = true
+        // console.log(sizes, sizes[activeSize].active = true);
+ 
+        
+    }
+
+ 
     return (
         <div className='product-detail'>
-            <div className="product-detail-container">
+            {
+                openTable ? 
+                <SizeTable openTable={openTable} setOpenTable={setOpenTable} />
+                :
+                <div className="product-detail-container">
                 <BreadCrumps/>
                 <div className="product-block">
 
                 <div className="product-slider">
-                    <img  className="product-slider_bigimg" src="/img/bomber.png" alt=""/>
+                    <img  className="product-slider_bigimg" src={product.img} alt=""/>
 
                 </div>
                 <div className="product-desc">
-                    <h1 className='product-name'>Бомбер Gone Crazy хаки</h1>
-                    <p className='product-price'>1099 &#8381;</p>  
+                    <h1 className='product-name'>{product.name}</h1>
+                    <p className='product-price'>{product.price} &#8381;</p>  
                     <div className="product-sizes">
                         <p>Выбрать размер:</p>
                         <div className="product-size-block">
-                            <div className="product-size_item">
-                            XS — S
-                            </div>
-                            <div className="product-size_item">
-                            S — M
-                            </div>
-                            <div className="product-size_item">
-                            M — L
-                            </div>
-                            <div className="product-size_item">
-                            L — XL
-                            </div>
+                            {
+                                sizes.map((i) => (
+                                    <div className={i.active ? "product-size_item pink-color" : "product-size_item" }key={i.size}  onClick={()=>choozeSize(i)} >
+                                            {i.size}
+                                     </div>
+                                ))
+                            }
+                
                         </div>
                     </div>
                     <div className="product-btns">
                       
-                        <div className="product-btn-transparent">
+                        <div className="product-btn-transparent" onClick={addProductToCart}>
                           <img className="product-btn-bg" src='/icons/watch-all.png' alt=""/>
                              <span className="product-btn-name white">в корзину</span> 
                          </div>
@@ -124,7 +174,7 @@ const ProductDetail = () => {
                             </div>
                         </div>
                         <div className="product-table-size">
-                            <button className='product-table-size__btn'>таблица размеров</button>
+                            <button className='product-table-size__btn ' onClick={() => setOpenTable(true)}>таблица размеров</button>
                         </div>
                         
                     </div>
@@ -142,6 +192,8 @@ const ProductDetail = () => {
             </div>
             
             
+            }
+           
             
         </div>
     );

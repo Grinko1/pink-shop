@@ -9,7 +9,7 @@ const Header = () => {
  const [isOpenSearch, setIsOpenSearch] = useState(false)
  const [activeMenu, setActiveMenu] = useState(false)
 
- console.log(activeMenu, 'activeMenu');
+
  const openSearch = () => {
   setIsOpenSearch(true)
  }
@@ -18,14 +18,14 @@ const Header = () => {
       <>
         <header className='header'>
           <div className="header_left-block">
-          <div className='header_block pink'>
-            <img src="/icons/map.png" alt="" className='header-icon '/>
-          <p>Рижская,22</p>
-            </div>
-            <div className='header_block pink'>
-            <img src="/icons/phone.png" alt="" className='header-icon ' />
-          <p>+71234567890</p>
-            </div>
+              <div className='header_block pink'>
+                <img src="/icons/map.png" alt="" className='header-icon '/>
+              <p>Рижская,22</p>
+                </div>
+                <div className='header_block pink'>
+                <img src="/icons/phone.png" alt="" className='header-icon ' />
+              <p>+71234567890</p>
+                </div>
           </div>
            
             <div className='header_block'>
@@ -34,11 +34,13 @@ const Header = () => {
               </Link>
             
             </div>
-            <div className='header_block ' onClick={openSearch}>
+          
+           
+          <div className='header_right-block'>
+          <div className='header_block ' onClick={openSearch}>
             <img src="/icons/search.png" alt="" className='header-icon pink'/>
           <p>Поиск</p>
             </div>
-          <div className='header_right-block'>
             <Link to='/favorite'>
             <img src="/icons/favorite.png" alt="" className='header-icon '/>
             </Link>
@@ -47,7 +49,9 @@ const Header = () => {
           <PullOutCart active={activeMenu} setActiveMenu={setActiveMenu}/>
         
           
-          </div>
+       
+            </div>
+          
         </header>
         {
           isOpenSearch ? 
