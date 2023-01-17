@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 
 const NewBlock = () => {
     const newProducts = useSelector(state => state.products.new)
-    console.log(newProducts);
+ 
    
     return (
         <div>

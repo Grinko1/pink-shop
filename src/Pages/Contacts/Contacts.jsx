@@ -1,5 +1,4 @@
 import Benefits from '../../Components/Benefits/Benefits';
-import BreadCrumps from '../../Components/BreadCrumps/BreadCrumps';
 import BtnWatchAll from '../../Components/BtnWatchAll/BtnWatchAll';
 import Instagram from '../../Components/InstagramBlock/Instagram';
 import './Contacts.scss';
@@ -8,7 +7,6 @@ const Contacts = () => {
     return (
         <div className='contacts'>
             <div className="contacts__container">
-                <BreadCrumps/>
                 <div className="contacts-main">
                     <div className="contacts-main__left">
                         <img className='contact-header-img' src="/icons/contacts.png" alt=""/>

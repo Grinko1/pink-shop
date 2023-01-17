@@ -1,4 +1,3 @@
-import BreadCrumps from '../../Components/BreadCrumps/BreadCrumps';
 import BtnWatchAll from '../../Components/BtnWatchAll/BtnWatchAll';
 import './BoorivaGirls.scss';
 
@@ -6,7 +5,7 @@ const BoorivaGirls = () => {
     return (
         <div className='booriva'>
             <div className="booriva__container">
-                <BreadCrumps/>
+         
                 <div className="booriva-header">
                     <img className="booriva-header__img" src="/icons/booriva-header.png" alt=""/>
                     <p className="booriva-header__text">

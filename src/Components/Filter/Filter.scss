@@ -3,17 +3,19 @@
 font-size: 20px;
     }
     .filter-category{
-        .filter-category_details{
-            margin-bottom: 15px;
-            .filter-category_img{
-                width: 12px;
-                height: 10px;
-                margin-left: 10px;
-            }
-        }
-        .filter-category_details[open] > summary{
-            color:var(--pink)
-        }
+       &__list{
+           padding: 0;
+           .category-item{
+               margin-bottom: 10px;
+           }
+           .choozen{
+               a{
+                  color: var(--pink); 
+               }
+               
+               font-weight: 700;
+           }
+       }
     
     }
     .filter-price{
@@ -24,5 +26,9 @@ font-size: 20px;
             display: flex;
             gap: 6px;
         }
+
+        ////
+      
+        /////
     }
 }

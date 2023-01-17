@@ -12,6 +12,11 @@ font-weight: 600;
 font-size: 16px;
 text-transform:uppercase;
 }
+.choozen{
+    a{
+        color:var(--pink);
+    }
+}
 .menu_link-item_link:hover{
     color:var(--pink);
 }

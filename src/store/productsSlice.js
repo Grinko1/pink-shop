@@ -104,6 +104,8 @@ const initialState = {
         },
         
     ],
+    searchable:[],
+    loading: false
  
   };
 
@@ -120,6 +122,12 @@ const productsSlice = createSlice({
                 }
   
         
+        },
+        setSearch (state, action) {
+            const result = state.products.filter((item) => item.name.toLocaleLowerCase().includes(action.payload.toLocaleLowerCase()))
+            state.searchable = result
+           
+
         }
     }
 
@@ -127,5 +135,5 @@ const productsSlice = createSlice({
 
 
 const { actions, reducer } = productsSlice
-export const { toggleFavorite} = actions
+export const { toggleFavorite, setSearch} = actions
 export default reducer

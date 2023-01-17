@@ -1,17 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { menuArr } from '../../data/menu';
 import './NavMenu.scss';
 
 const NavMenu = () => {
-  const menuArr = [
-    {id:1, name:'Новинки', link:'/new'},
-    {id:2, name:'Платья', link:'products/dresses'},
-    {id:3, name:'Верх', link:'products/top'},
-    {id:4, name:'Низ', link:'products/bottom'},
-    {id:5, name:'куртки', link:'products/jackets'},
-    {id:6, name:'Мелочи', link:'products/things'},
-    {id:7, name:'Костюмы', link:'/products/suits'},
-    {id:8, name:'#Boorivagirls', link:'/boorivagirls'},
-  ]
+  const {pathname} = useLocation()
+ 
     return (
    <nav className='navbar'>
      <ul className='menu_links'>
@@ -19,7 +12,7 @@ const NavMenu = () => {
 
      {
        menuArr.map((menu) => (
-         <li className='menu_link-item' key={menu.id}>
+         <li className= {menu.link == pathname.substring(1) ? 'menu_link-item choozen' : 'menu_link-item'} key={menu.id}>
            <Link className='menu_link-item_link' to={menu.link}>{menu.name}</Link>
            </li>
        ))

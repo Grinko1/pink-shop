@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './SizeTable.scss';
 
 const SizeTable = ({openTable, setOpenTable}) => {

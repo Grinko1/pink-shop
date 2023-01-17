@@ -1,4 +1,3 @@
-import BreadCrumps from '../../Components/BreadCrumps/BreadCrumps';
 import Instagram from '../../Components/InstagramBlock/Instagram';
 import './Delivery.scss';
 
@@ -6,7 +5,6 @@ const Delivery = () => {
     return (
         <div className='exchange'>
             <div  className='exchange__container'>
-            <BreadCrumps/>
             <img className='exchange-header' src="/icons/delivery.png" alt=""/>
             <div className="exchange-desc">
             <div className="exchange-desc-item">

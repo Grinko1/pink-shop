@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import InputSearch from '../InputSerch/InputSearch';
 import NavMenu from '../NavMenu/NavMenu';
@@ -8,6 +9,10 @@ import './Header.scss';
 const Header = () => {
  const [isOpenSearch, setIsOpenSearch] = useState(false)
  const [activeMenu, setActiveMenu] = useState(false)
+
+ const {cartItems} = useSelector(state => state.cartItems)
+ const {favoriteItems} = useSelector(state => state.favoriteItems)
+
 
 
  const openSearch = () => {
@@ -37,15 +42,24 @@ const Header = () => {
           
            
           <div className='header_right-block'>
-          <div className='header_block ' onClick={openSearch}>
-            <img src="/icons/search.png" alt="" className='header-icon pink'/>
-          <p>Поиск</p>
-            </div>
-            <Link to='/favorite'>
-            <img src="/icons/favorite.png" alt="" className='header-icon '/>
-            </Link>
+              <div className='header_block ' onClick={openSearch}>
+                <img src="/icons/search.png" alt="" className='header-icon pink'/>
+                <p>Поиск</p>
+                </div>
+                  <div className='header-btns'>
+                  <div className='header-btns__cart'>
+                      <Link to='/favorite'>
+                      <span>{favoriteItems.length}</span>
+                      <img src="/icons/favorite.png" alt="" className='header-icon '/>
+                      </Link>
+                      </div>
+                   <div className='header-btns__cart'>
+                      <span>{cartItems.length}</span>
+                      <img src="/icons/bag.png" alt="" className='header-icon ' onClick={() => setActiveMenu(!activeMenu)} />
+                    </div>
+             </div>
+            
           
-          <img src="/icons/bag.png" alt="" className='header-icon ' onClick={() => setActiveMenu(!activeMenu)} />
           <PullOutCart active={activeMenu} setActiveMenu={setActiveMenu}/>
         
           

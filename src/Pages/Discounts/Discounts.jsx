@@ -1,5 +1,4 @@
 import Benefits from '../../Components/Benefits/Benefits';
-import BreadCrumps from '../../Components/BreadCrumps/BreadCrumps';
 import Instagram from '../../Components/InstagramBlock/Instagram';
 import './Discounts.scss';
 
@@ -7,7 +6,6 @@ const Discounts = () => {
     return (
         <div className='discount'>
             <div className="discount__container">
-                <BreadCrumps />
                 <img className='discount-header-icon' src="/icons/discount.png" alt="" />
                 <div className="discount-programms">
                     <div className="discount-programm">

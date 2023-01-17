@@ -17,7 +17,7 @@ import Order from './Pages/Order/Order';
 import ThanksForOrder from './Pages/ThanksForOrder/ThanksForOrder';
 import NewPage from './Pages/New/NewPage';
 import { useEffect, useLayoutEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { cartTotal } from './store/cartSlice';
 
 function App() {
@@ -31,7 +31,6 @@ function App() {
     useLayoutEffect(() => {
       document.documentElement.scrollTo(0, 0);
     }, [location.pathname]);
-    // console.log(location)
     return children
   } 
   

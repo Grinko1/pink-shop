@@ -1,4 +1,3 @@
-import BreadCrumps from '../../Components/BreadCrumps/BreadCrumps';
 import './ProductDetail.scss';
 import { useEffect, useState } from 'react';
 import ProductBenefits from '../../Components/ProductBenefits/ProductBenefits';
@@ -7,9 +6,9 @@ import { newProducts } from '../../data/new';
 import CardItem from '../../Components/CardItem/CardItem';
 import Instagram from '../../Components/InstagramBlock/Instagram';
 import SizeTable from '../../Components/SizeTable/SizeTable';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addToCart, cartTotal } from '../../store/cartSlice';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { products } from '../../data/products';
 
 const ProductDetail = () => {
@@ -17,36 +16,36 @@ const ProductDetail = () => {
     const [showDots, setShowDots] = useState(true)
     const [showText, setText] = useState(false)
     const [openTable, setOpenTable] = useState(false)
-    const [sizes, setSizes] = useState([
-        {size:'XS-S', } ,
-         {size:'S-M', } ,
-         {size:'M-L', } ,
-         {size:'L-XL', } ])
+    const navigate = useNavigate()
 
     const {id} = useParams()
-   
 
-    // const sizes = [
-    //     {size:'XS-S', active:false} ,
-    //      {size:'S-M', active:true} ,
-    //      {size:'M-L', active:false} ,
-    //      {size:'L-XL', active:false} ]
+    const choozeSize = (i) => {
+        setProduct({...product, size : i.size})   
+    }
+
+    const sizes = [
+        {size:'XS - S'} ,
+         {size:'S - M'} ,
+         {size:'M - L'} ,
+         {size:'L - XL'} ]
 
 
         useEffect(() =>{
             setProduct(products.find(i => i.id == id))      
         } ,[id])
    
-
-
-
     const dispatch = useDispatch()
-
-  
 
     const addProductToCart = () => {
         dispatch(addToCart({...product, id:new Date().toISOString()}))
         dispatch(cartTotal())
+    }
+    const fastOrder = () => {
+        dispatch(addToCart({...product, id:new Date().toISOString()}))
+        dispatch(cartTotal())
+        navigate('/order')
+      
     }
 
     useEffect(() => {
@@ -57,22 +56,11 @@ const ProductDetail = () => {
         }
     },[showText])
     
-
     const toggleShowMore = () => {
         setText(!showText)
     }
 
-    const choozeSize = (i) => {
-        setProduct({...product, size : i.size})
-        const activeSize = sizes.findIndex(item => item.size === i.size)
-
- 
-        // setSizes(sizes, sizes[activeSize].active = true)
-        i.active = true
-        // console.log(sizes, sizes[activeSize].active = true);
- 
-        
-    }
+  
 
  
     return (
@@ -82,7 +70,7 @@ const ProductDetail = () => {
                 <SizeTable openTable={openTable} setOpenTable={setOpenTable} />
                 :
                 <div className="product-detail-container">
-                <BreadCrumps/>
+
                 <div className="product-block">
 
                 <div className="product-slider">
@@ -97,7 +85,7 @@ const ProductDetail = () => {
                         <div className="product-size-block">
                             {
                                 sizes.map((i) => (
-                                    <div className={i.active ? "product-size_item pink-color" : "product-size_item" }key={i.size}  onClick={()=>choozeSize(i)} >
+                                    <div className={product.size == i.size ? "product-size_item pink-color" : "product-size_item" }key={i.size}  onClick={()=>choozeSize(i)} >
                                             {i.size}
                                      </div>
                                 ))
@@ -111,7 +99,7 @@ const ProductDetail = () => {
                           <img className="product-btn-bg" src='/icons/watch-all.png' alt=""/>
                              <span className="product-btn-name white">в корзину</span> 
                          </div>
-                        <div className="product-btn-transparent">
+                        <div className="product-btn-transparent"  onClick={fastOrder}>
                           <img className="product-btn-bg" src='/icons/btn-transparent.png' alt=""/>
                              <span className="product-btn-name pink">Быстрый заказ</span> 
                          </div>

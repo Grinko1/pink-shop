@@ -33,6 +33,27 @@
     align-items: center;
     justify-content: center;
     gap: 40px;
-   
+   .header-btns{
+       display: flex;
+       gap: 15px;
+       &__cart{
+           position: relative;
+           cursor: pointer;
+           
+           span{
+               position: absolute;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               background-color: var(--pink);
+               border-radius: 50%;
+               height: 13px;
+               width: 13px;
+               top: -6px;
+               right: 3px;
+               padding: 1px;
+           }
+       }
+   }
 }
 

@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import Benefits from '../../Components/Benefits/Benefits';
-import BreadCrumps from '../../Components/BreadCrumps/BreadCrumps';
 import CardItem from '../../Components/CardItem/CardItem';
 import Instagram from '../../Components/InstagramBlock/Instagram';
 import PinkHeader from '../../Components/PinkHeader/PinkHeader';
@@ -22,7 +20,6 @@ const Favorite = () => {
                 <ModalEmptyFavorite/>
                 :
                 <div className="favorite-container">
-                <BreadCrumps/>
                 <PinkHeader pinkText={'список желаний'} doubleText={'желания'} />
                 <div className='favorite-items'>
                     {

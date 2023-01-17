@@ -1,13 +1,20 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import BtnWatchAll from '../../Components/BtnWatchAll/BtnWatchAll';
+import { clearCart } from '../../store/cartSlice';
 import './ThanksForOrder.scss';
 
 const ThanksForOrder = () => {
+    const dispatch = useDispatch()
+    useEffect(()=>{
+        dispatch(clearCart())
+    })
     return (
         <div className='thanks'>
             <div className="thanks__container">
                 <Link to='/'>
-                                    <img className='thanks-close' src="/icons/delete.png" alt=""/>
+                     <img className='thanks-close' src="/icons/delete.png" alt=""/>
                 </Link>
 
                 <img src="/icons/thanks.png" alt=""/>

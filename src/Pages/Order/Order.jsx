@@ -3,10 +3,28 @@ import { Link } from 'react-router-dom';
 import BtnWatchAll from '../../Components/BtnWatchAll/BtnWatchAll';
 import CartItems from '../../Components/CartItems/CartItems';
 import './Order.scss';
+import InputMask from 'react-input-mask';
+import { useState } from 'react';
+
+
+function PhoneInput(props) {
+  return (
+    <InputMask 
+      mask='(+7) 999 999 99 99' 
+      value={props.value} 
+      onChange={props.onChange}
+      placeholder='+7 (___) ___-__-__'>
+        
+    </InputMask>
+  );
+}
+
 
 const Order = () => {
-    const {cartTotalAmount} = useSelector(state=>state.cartItems)
-    console.log(cartTotalAmount);
+    const {cartTotalAmount, cartItems} = useSelector(state=>state.cartItems)
+    const [phone, setPhone] = useState('');
+    const handleInput = ({ target: { value } }) => setPhone(value);
+
     return (
         <div className='order'>
             <div className="order__container">
@@ -17,13 +35,17 @@ const Order = () => {
                         </div>
                         <div className="first-step-right step-info">
                             <label className='first-step-label'>
-                              <input type="text" placeholder='Имя'/>
+                              <input type="text" placeholder='Имя' />
                             </label>
                             <label className='first-step-label'>
                               <input type="text" placeholder='Фамилия'/>
                             </label>
+                           
                             <label className='first-step-label'>
-                              <input type="phone" placeholder='+7 (___) ___-__-__'/>
+                            <PhoneInput 
+                                value={phone} 
+                                onChange={handleInput}>
+                            </PhoneInput>
                             </label>
                             <label className='first-step-label'>
                               <input type="email" placeholder='E-mail'/>
@@ -37,19 +59,19 @@ const Order = () => {
                         <div className="second-step-right step-info">
                             <div className="form_radio">
 	                             <input id="radio-1" type="radio" name="radio"  />
-	                            <label htmlFor="radio-1">Доставка в отделение Новой почты —
+	                            <label htmlFor="radio-1">Доставка в отделение почты —
                                 <br/> <span className='pink-link'>согласно тарифам НП</span> </label>
                             </div>
                             <div className="form_radio">
 	                             <input id="radio-2" type="radio" name="radio"  />
-	                            <label htmlFor="radio-2">Курьерская доставка Новой почты — 
+	                            <label htmlFor="radio-2">Курьерская доставка почты — 
                                 <br/> <span className='pink-link'>согласно тарифам НП</span> </label>
                             </div>
 
                             <div className="form_radio">
 	                             <input id="radio-3" type="radio" name="radio"  />
 	                            <label htmlFor="radio-3">Международная доставка —
-                                <br/> <span className='pink-link'>согласно тарифам Укрпочта</span> </label>
+                                <br/> <span className='pink-link'>согласно тарифам Почты</span> </label>
                             </div>
 
                             <div className="form_radio">
@@ -72,11 +94,11 @@ const Order = () => {
                         </div>
                         <div className="second-step-right step-info">
                             <div className="form_radio radio-center ">
-	                             <input id="radio-5" type="radio" name="radio"  />
+	                             <input id="radio-5" type="radio" name="cash"  />
 	                            <label htmlFor="radio-5">Каротой Visa / MasterCard </label>
                             </div>
                             <div className="form_radio radio-center ">
-	                             <input id="radio-6" type="radio" name="radio"  />
+	                             <input id="radio-6" type="radio" name="cash"  />
 	                            <label htmlFor="radio-6">Наличкой при получении </label>
                             </div>
 
@@ -84,7 +106,7 @@ const Order = () => {
                               <input type="text" placeholder='Номер карты  boorivasis'/>
                             </label>
                             <div className="form_radio small-radio ">
-	                             <input id="radio-7" type="radio" name="radio"  />
+	                             <input id="radio-7" type="radio" name="agree"  />
 	                            <label htmlFor="radio-7">Я уверена в заказе, со мной можно <br/> не связываться </label>
                             </div>
  
@@ -104,7 +126,10 @@ const Order = () => {
                 <div className="order-cart-block">
 
                     <CartItems/>
-                    <div className="order-cart-subtotal">
+                   { 
+                   cartItems.length ? 
+                   <>
+                   <div className="order-cart-subtotal">
                         
                         <p> <span>Cумма заказа:</span>  <span className="order-cart-subtotal__price" >{cartTotalAmount}</span></p>
                         <p> <span>Стоимость доставки:</span> <span className="order-cart-subtotal__price" >Бесплатно</span> </p>
@@ -112,6 +137,20 @@ const Order = () => {
                     <div className="order-cart-total">
                     Сумма заказа: . . . . . . <span> {cartTotalAmount} &#8381;</span> 
                     </div>
+                    </>
+                :
+                <>
+                 <div className='empty-cart'>
+              <img src="/icons/emptycart.png" alt=""/>
+              <p>Твоя корзина пуста, но это никогда
+                 <br/> не поздно исправить:)</p>
+
+            </div>
+            <Link to='/'   >
+            <BtnWatchAll img={'/icons/watch-all.png'} text={'За покупками'} size={'l'}/>
+            </Link>
+                </>    
+                }
                
                 </div>
             </div>
