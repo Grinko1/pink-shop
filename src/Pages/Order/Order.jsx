@@ -1,10 +1,11 @@
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import BtnWatchAll from '../../Components/BtnWatchAll/BtnWatchAll';
 import CartItems from '../../Components/CartItems/CartItems';
 import './Order.scss';
 import InputMask from 'react-input-mask';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import Radio from '../../Components/Radio/Radio';
 
 
 function PhoneInput(props) {
@@ -21,34 +22,86 @@ function PhoneInput(props) {
 
 
 const Order = () => {
+    const navigate = useNavigate()
     const {cartTotalAmount, cartItems} = useSelector(state=>state.cartItems)
     const [phone, setPhone] = useState('');
-    const handleInput = ({ target: { value } }) => setPhone(value);
+    const [name, setName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [order, setOrder] = useState('');
+    const [pay, setPay] = useState('');
+    const [nextStep, setNextStep] = useState(false)
+    const [focused, setFocused] = useState(false)
+
+    const handleInputPhone = ({ target: { value } }) => setPhone(value);
+    const handleInputName = ({ target: { value } }) => setName(value);
+    const handleInputLastName = ({ target: { value } }) => setLastName(value);
+    const handleInputEmail= ({ target: { value } }) => setEmail(value);
+    const handleChangeOrder = e => {setOrder(e.target.value)};
+    const handleChangePay = e => {setPay(e.target.value);};
+    const handleFocus = () => {setFocused(true)}
+
+    useEffect(() =>{
+        if(order === ''  ||  pay === '' || name === '' || lastName === '' || phone === '' || email === '' ){
+
+            setNextStep(false)
+
+        } else{
+   
+            setNextStep(true)
+        }
+     
+    },[name, lastName, phone, email, pay, order])
+
+   
+
+      const handleCheckForm = () => {
+            if(nextStep === true){
+                navigate('/thanks-for-order')
+            }
+    }
+  
 
     return (
         <div className='order'>
             <div className="order__container">
-                <div className="order-block">
+                <div className="order-block" >
                     <div className="first-step step">
                         <div className="step-img">
                             <img src="/icons/first-step.png" alt=""/>
                         </div>
                         <div className="first-step-right step-info">
                             <label className='first-step-label'>
-                              <input type="text" placeholder='Имя' />
+                              <input type="text" placeholder='Имя' 
+                                required   value={name} 
+                                onChange={handleInputName}
+                                onBlur={handleFocus}
+                                focused={focused.toString()}  
+                                />
                             </label>
                             <label className='first-step-label'>
-                              <input type="text" placeholder='Фамилия'/>
+                              <input type="text" 
+                              placeholder='Фамилия' required 
+                              value={lastName} 
+                              onChange={handleInputLastName}
+                              onBlur={handleFocus}
+                              focused={focused.toString()}
+                              />
                             </label>
                            
                             <label className='first-step-label'>
                             <PhoneInput 
                                 value={phone} 
-                                onChange={handleInput}>
+                                onChange={handleInputPhone}>      
                             </PhoneInput>
                             </label>
                             <label className='first-step-label'>
-                              <input type="email" placeholder='E-mail'/>
+                              <input type="email" 
+                              placeholder='E-mail' 
+                              required value={email} 
+                              onChange={handleInputEmail}
+                              onBlur={handleFocus}
+                              focused={focused.toString()}/>
                             </label>
                         </div>
                     </div>
@@ -57,28 +110,23 @@ const Order = () => {
                             <img src="/icons/second-step.png" alt=""/>
                         </div>
                         <div className="second-step-right step-info">
-                            <div className="form_radio">
-	                             <input id="radio-1" type="radio" name="radio"  />
-	                            <label htmlFor="radio-1">Доставка в отделение почты —
-                                <br/> <span className='pink-link'>согласно тарифам НП</span> </label>
-                            </div>
-                            <div className="form_radio">
-	                             <input id="radio-2" type="radio" name="radio"  />
-	                            <label htmlFor="radio-2">Курьерская доставка почты — 
-                                <br/> <span className='pink-link'>согласно тарифам НП</span> </label>
-                            </div>
-
-                            <div className="form_radio">
-	                             <input id="radio-3" type="radio" name="radio"  />
-	                            <label htmlFor="radio-3">Международная доставка —
-                                <br/> <span className='pink-link'>согласно тарифам Почты</span> </label>
-                            </div>
-
-                            <div className="form_radio">
-	                             <input id="radio-4" type="radio" name="radio"  />
-	                            <label htmlFor="radio-4">Самовывоз с нашего шоурума 
-                                 —  <br/> <span className='pink-link'>бесплатно</span> </label>
-                            </div>
+                          
+                            <Radio id='radio-1' htmlFor='radio-1' name='order' value='radio-1' onChange={handleChangeOrder} >
+                            Доставка в отделение почты —
+                                <br/> <span className='pink-link'>согласно тарифам НП</span>
+                            </Radio>
+                            <Radio id='radio-2' htmlFor='radio-2' name='order' value='radio-2' onChange={handleChangeOrder} >
+                            Курьерская доставка почты — 
+                                <br/> <span className='pink-link'>согласно тарифам НП</span>
+                            </Radio>
+                            <Radio id='radio-3' htmlFor='radio-3' name='order' value='radio-3' onChange={handleChangeOrder} >
+                            Международная доставка —
+                                <br/> <span className='pink-link'>согласно тарифам Почты</span>
+                            </Radio>
+                            <Radio id='radio-4' htmlFor='radio-4' name='order' value='radio-4' onChange={handleChangeOrder}>
+                            Самовывоз с нашего шоурума 
+                                 —  <br/> <span className='pink-link'>бесплатно</span>
+                            </Radio>
                             <p className='second-step-adress'>г.Киев,  ул. Нижний вал, 37 <br/>
                                 Ежедневно с 11:00 до 21:00</p>
                                 <textarea className='second-step-textarea' name="" id="" cols="40" rows="5" placeholder='Комментарий к заказу'></textarea>
@@ -93,14 +141,19 @@ const Order = () => {
                             <img src="/icons/third-step.png" alt=""/>
                         </div>
                         <div className="second-step-right step-info">
-                            <div className="form_radio radio-center ">
-	                             <input id="radio-5" type="radio" name="cash"  />
-	                            <label htmlFor="radio-5">Каротой Visa / MasterCard </label>
-                            </div>
-                            <div className="form_radio radio-center ">
-	                             <input id="radio-6" type="radio" name="cash"  />
-	                            <label htmlFor="radio-6">Наличкой при получении </label>
-                            </div>
+                           
+                            <div className="second-step-right step-info">
+                                <Radio id='card' htmlFor='card' name='cash' oneLine value='card' onChange={handleChangePay} >
+                                Каротой Visa / MasterCard
+                                </Radio>
+                                </div>
+                                <div className="second-step-right step-info">
+                                <Radio id='cash' htmlFor='cash' name='cash' oneLine value='cash' onChange={handleChangePay} >
+                                Наличкой при получении 
+                                </Radio>
+                                </div>
+
+                          
 
                             <label className='first-step-label'>
                               <input type="text" placeholder='Номер карты  boorivasis'/>
@@ -115,10 +168,10 @@ const Order = () => {
                         </div>
                         
                     </div>
-                    <div className="order-btn">
-                        <Link to='/thanks-for-order'>
-                        <BtnWatchAll img={'/icons/watch-all.png'} text={'Подтвердить заказ'} size={'l'} />
-                        </Link>
+                    <div className="order-btn" onClick={handleCheckForm} >
+                    
+                        <BtnWatchAll img={'/icons/watch-all.png'} text={'Подтвердить заказ'} size={'l'} disabled={nextStep ? false : true}   />
+                    
              
                     </div>
 

@@ -24,5 +24,9 @@
         cursor: pointer;
 
     }
+    .disabled{
+       color: rgb(233, 229, 229);
+       cursor: not-allowed;
+    }
     
 }
