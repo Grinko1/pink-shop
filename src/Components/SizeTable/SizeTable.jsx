@@ -20,10 +20,10 @@ const SizeTable = ({openTable, setOpenTable}) => {
             <div className="size-table-table ">
                     <div className='table-header row'> 
                     <span> Размер</span>
-                     <span>Бюст(см) </span> 
-                     <span>Талия(см)</span> 
-                     <span>Бедра(см)</span> 
-                     <span>Рост(см)</span>
+                     <span>Бюст<br/>(см) </span> 
+                     <span>Талия<br/>(см)</span> 
+                     <span>Бедра<br/>(см)</span> 
+                     <span>Рост<br/>(см)</span>
                       </div>
                 <div className='row'>
                     <span className='table-header'>XS</span>
@@ -60,11 +60,11 @@ const SizeTable = ({openTable, setOpenTable}) => {
                 <div className="size-table-table ">
                 <div className='table-header row'> 
                     <span> Размер</span>
-                     <span>Длина(см) </span> 
-                     <span>Грудь(см)</span> 
-                     <span>Талия(см)</span> 
-                     <span>Бедра(см)</span>
-                     <span>Длина рукава</span>
+                     <span>Длина<br/>(см) </span> 
+                     <span>Грудь<br/>(см)</span> 
+                     <span>Талия<br/>(см)</span> 
+                     <span>Бедра<br/>(см)</span>
+                     <span>Длина <br/>рукава</span>
                       </div>
                 <div className='row'>
                     <span className='table-header'>XS</span>

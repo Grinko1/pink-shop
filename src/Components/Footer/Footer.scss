@@ -4,6 +4,7 @@
     display: flex;
     height: 274px;
     margin-top: 60px;
+  
     .footer_block{
         display: flex;
         align-items: center;
@@ -60,4 +61,53 @@
             }
         }
     }
+
+}
+@media(max-width:760px){
+    .footer{
+        
+        .footer-adaptive{
+            display: none;
+        }
+    }
+}
+@media(max-width:460px){
+    .footer{
+    
+        .footer_block{
+            width: 100%;
+            .footer-header{
+                font-size: 15px;
+            }
+            ul.footer-info{
+                padding: 5px;
+            }
+           .footer-header_last{
+            font-size: 15px;
+            text-align: center;   
+           }
+     
+            .footer_block-top{
+                
+                .footer_block-top-admin{
+                    width: 41px;
+                }
+            }
+            .write-msg{
+                gap: 10px;
+               p{
+                   padding: 5px 5px 0 0 ;
+               }
+        }  
+        }
+      
+        .footer-adaptive{
+            display: none;
+        }
+        .footer-mobile{
+            display: none;
+        }
+    
+    }
+   
 }

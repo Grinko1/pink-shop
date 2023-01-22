@@ -13,3 +13,13 @@
         }
     }
 }
+@media(max-width:440px){
+    .products{
+        .products__container{
+            width: 100% !important;
+            .products-header-img{
+                max-width: 80%;
+            }
+        }
+    }
+}

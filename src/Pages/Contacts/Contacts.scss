@@ -24,7 +24,7 @@
                 }
                 .contact-map{
                     &__img{
-                        width: 550px;
+                        width: 100%;
                         height: 350px;
                         border-radius: 24px;
                         object-fit: cover;
@@ -40,8 +40,60 @@
             }
             &__right{
                 img{
-                    max-width: 660px;
+                    max-width: 100%;
                     margin-top: 25px;
+                }
+            }
+        }
+    }
+}
+@media(max-width:1200px){
+    .contacts{
+        &__container{
+            .contacts-main{
+                margin-bottom: 250px;
+                &__left{
+                    .contact-header-img{
+                        max-width: 350px;
+                    }
+                    .contact-map{
+                        &__img{
+                            width: 100%;
+                            height: 60%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media(max-width:600px){
+    .contacts{
+        &__container{
+            width: 100%;
+            .contacts-main{
+                margin-bottom: 250px;
+                &__left{
+                    width: 100%;
+                    .contact-header-img{
+                        max-width: 350px;
+                    }
+                    .contact-map{
+                        &__img{
+                            width: 100%;
+                            height: 50%;
+                            left: 0;
+                    
+                        }
+                    }
+                    .contact-get-direction{
+                        position: relative;
+                        top: 60%;
+    
+                    }
+                }
+                &__right{
+                    display: none;
                 }
             }
         }

@@ -6,7 +6,7 @@
     justify-content: space-around;
     width: 100%;
     .suits-item{
-        position: relative;
+     position: relative;
     .suit_img{
     width: 360px;
     height: 530px;
@@ -62,5 +62,22 @@
     bottom: 90px;
   
 }
+    }
+}
+@media(max-width:1350px){
+    .suits-items{
+        flex-wrap: wrap;
+        gap: 10px;
+        .suits-item{
+            position: relative;
+            width: 360px;
+            margin: auto;
+
+    }
+    }
+}
+@media(max-width:460px){
+    .suits-items{
+        flex-direction: column;
     }
 }

@@ -1,5 +1,5 @@
 
-.menu {
+.menu-mobile {
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -22,17 +22,11 @@
     .menu_content {
       width: 30%;
       height: 100%;
-      background: #FFFFFF;
+      background: var(--pink);
       margin-left: 70%;
       transition: all ease-in-out 0.2s;
-  
-  
-      .menu_item {
-          display: flex;
-          flex-direction: column;
-     
-     
-      }
+      color: white;
+
     }
   
     .menu_header {
@@ -46,22 +40,34 @@
      }
      
       }
-      h1{
-        text-align: center;
-        font-weight: 700;
-        font-size: 25px;
-        line-height: 30px;
-    }
+      .menu-mobile-header{
+        font-family: var(--font-cursive);
+        font-size: 35px;
+        letter-spacing: 1px;
+      }
    
     }
-
-    .cart-total{
-        font-size: 25px;
-        text-align: center;
-        margin: 40px 0 50px ;
+    .menu-items{
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
+      width: 80%;
+      margin: 20px auto;
+      font-size: 20px;
+      gap: 15px;
+     
+      a{
+        color: white;
+      }
+      
     }
+    .menu-subitems{
+      font-size: 14px;
+    }
+  
   }
-  .menu.active {
+  .menu-mobile.active {
     transform: translateX(0);
   }
   .empty-cart{
@@ -79,7 +85,7 @@
   }
   
   @media  screen and (max-width: 600px) {
-    .menu {
+    .menu-mobile {
       scroll-behavior: none;
       height: 110% !important;
       .menu_content {
@@ -104,7 +110,7 @@
   
   }
   @media  screen and  (max-width: 1100px){
-    .menu{
+    .menu-mobile{
       transform: translateX(130%);
       .blur{
         right: 30% !important;
@@ -116,7 +122,7 @@
     }
   }
   @media  screen and  (max-width: 850px){
-    .menu{
+    .menu-mobile{
       transform: translateX(140%);
       .blur{
         right: 40% ;

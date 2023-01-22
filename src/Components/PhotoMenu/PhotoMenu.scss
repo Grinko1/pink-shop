@@ -21,7 +21,6 @@
         color:white;
         font-size: 20px;
         font-weight: 400;
-        z-index: 100;
         line-height: 38px;
         bottom: 34px;
         left: 20px;
@@ -30,6 +29,7 @@
         }
         .pink-name_bg{
             position: absolute;
+ 
         }
        
     }
@@ -118,4 +118,43 @@
       margin-left: 10px;
       position: relative;
   }
+}
+@media(max-width: 460px) {
+
+    .photomenu {
+        flex-direction: column;
+    
+      
+        .photo-big{
+            width: 370px;
+            height: 250px;
+            object-fit: contain;
+
+        }
+        .photo-small{
+            width: 180px;
+            object-fit: cover;
+        }
+
+        .pants{
+           right: -65px;
+        }
+        .suits{
+            width: 150px;
+            right: 20px;
+        }
+        .hoodie{
+            bottom: 41px;
+            left: 31px;
+        }
+        .photomenu-left{
+            grid-template-columns: 180px 180px;
+        }
+        .photomenu-right{
+            grid-template-columns: 180px 180px;
+    
+        }
+
+  
+    }
 }

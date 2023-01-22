@@ -4,8 +4,8 @@ import './Footer.scss';
 const Footer = () => {
     return (
         <footer className='footer' >
-            <div className="footer_block">
-                <img className='footer-logo' src="/img/footer-logo.png" alt=""/>
+            <div className="footer_block footer-adaptive">
+                <img className='footer-logo ' src="/img/footer-logo.png" alt=""/>
             </div>
             <div className="footer_block">
                 <h3 className='footer-header'>Инфо</h3>
@@ -24,8 +24,8 @@ const Footer = () => {
                 </ul>
             </div>
 
-            <div className="footer_block">
-            <h3 className='footer-header'>СОЦ.СЕТИ</h3>
+            <div className="footer_block footer-mobile">
+            <h3 className='footer-header '>СОЦ.СЕТИ</h3>
                 <div className='footer-icons'>
                 
                     <img className='footer-icon' src="/icons/fbicon.png" alt=""/>
@@ -36,8 +36,8 @@ const Footer = () => {
                      
                 
             </div>
-            <div className="footer_block">
-                <div className="footer_block-top ">
+            <div className="footer_block ">
+                <div className="footer_block-top write-msg ">
                     <img className="footer_block-top-admin" src="/img/admin.png" alt=""/>
                     <p>Нам важно знать, что ты думаешь про нас! Просто напиши мне!</p>
                 </div>

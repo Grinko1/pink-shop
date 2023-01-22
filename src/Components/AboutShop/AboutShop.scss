@@ -1,7 +1,12 @@
 .shop-block{
-    width: 1400px;
+    width: 100%;
     margin: auto;
-    position: relative;
+   
+    .shop-block-container{
+        width: 80%;
+        margin: auto;
+        position: relative;
+    }
     .shop-block_header{
         font-size: 54px;
         font-weight: 400;
@@ -59,5 +64,52 @@
         font-weight: 300;
         font-size: 18px;
         cursor: pointer;
+    }
+}
+@media(max-width:460px){
+    .shop-block{
+        width: 100%;     
+        margin: auto;
+        position: relative;
+        .shop-block-container{
+            width: 100%;
+            margin: auto;
+            position: relative;
+        }
+        .shop-block_header{
+            font-size: 40px;
+            top: 20px;
+            left: 0;
+    
+        }
+        .shop-block_img{
+            justify-content: flex-end;
+
+          .shop_img{
+            width: 166px;
+            height: 300px;
+            object-fit: cover;
+          }  
+        }
+        .shop-block-desc{
+            top: 130px;
+            width: 160px;
+            left: 5px;
+        }
+        .shop-block-address{
+
+            bottom: -70px;
+            left: 0;
+        }
+        .shop-mapimg{
+            width: 110px;
+            height: 110px;
+            position: absolute;
+            right: 30px;
+        }
+       
+    }
+    .shop-getdirection{
+     margin-top: 115px;
     }
 }

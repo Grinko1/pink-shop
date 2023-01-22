@@ -36,3 +36,11 @@
     }
   
 }
+@media(max-width: 460px){
+    .card-item{
+        width: 160px;
+        .card-item_img{
+            width: 160px;
+        }
+    }
+}

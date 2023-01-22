@@ -164,3 +164,60 @@
         }
     }
 }
+@media (max-width:1000px){
+    .product-detail{
+        .product-detail-container{
+            .product-block{
+                .product-slider{
+                    .product-slider_bigimg{
+                        width: 300px;
+                    }
+                }
+                .product-desc{
+                    width: 50%;
+                    .product-btns{
+                        flex-direction: column;
+                    }
+                    .product-text{
+                        .hidden{
+                            display: none;
+                        }
+                    }
+                    .product-composition{
+                        display: flex;   
+    
+                    }
+                }
+            }
+        }
+    }
+}
+@media(max-width:600px) {
+    .product-detail{
+        .product-detail-container{
+            .product-block{
+                flex-direction: column;
+                .product-desc{
+                    width: 100%;
+                    .product-sizes{
+                        .product-size-block{
+                            .product-size_item{
+                                width: 50px;
+                            }
+                        }
+                    }
+                    .product-btns{
+                        flex-direction: column;
+                    }
+                }
+            }
+        }
+    }
+    .hide-benefits{
+        display: none;
+    }
+    .product-suggestion{
+      flex-wrap: wrap;
+
+    }
+}

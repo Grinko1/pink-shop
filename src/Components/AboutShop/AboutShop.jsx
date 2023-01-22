@@ -6,6 +6,9 @@ const AboutShop = () => {
     return (
         <>
         <div className='shop-block'>
+            <div className="shop-block-container">
+
+            
             <h1 className='shop-block_header'>BOORIVA <br/> STORE</h1>
             <div className="shop-block_img">
             <img className='shop_img' src="/img/shop.png" alt=""/>
@@ -19,7 +22,7 @@ const AboutShop = () => {
             </p>
 
         <img className='shop-mapimg' src="/img/map.png" alt=""/>
-
+        </div>
         </div>
 
 

@@ -1,12 +1,13 @@
 import { Link, useLocation } from 'react-router-dom';
 import { subMenu } from '../../data/menu';
-import Checkbox from '../Checkbox/Checkbox';
 import Radio from '../Radio/Radio';
 import './Filter.scss';
 
 
-const Filter = () => {
+const Filter = ({handleChangePrice}) => {
   const {pathname} = useLocation()
+
+  
     return (
         <div className='filter'>
            
@@ -23,16 +24,16 @@ const Filter = () => {
         <h2 className='filter-neader'>ЦЕНЫ:</h2>
         <div className="filter-price">
               
-                    <Radio id='price1' htmlFor='price1' name='price' oneLine>
+                    <Radio id='price1' htmlFor='price1' name='price' oneLine  value='all price' onChange={handleChangePrice} >
                     Все цены
                     </Radio>
-                    <Radio id='price2' htmlFor='price2' name='price' oneLine>
+                    <Radio id='price2' htmlFor='price2' name='price' oneLine disabled  >
                     500 — 1000
                     </Radio>
-                    <Radio id='price3' htmlFor='price3' name='price' oneLine>
+                    <Radio id='price3' htmlFor='price3' name='price' oneLine  value='1000 — 1500' onChange={handleChangePrice} >
                     1000 — 1500
                     </Radio>
-                    <Radio id='price4' htmlFor='price4' name='price' oneLine>
+                    <Radio id='price4' htmlFor='price4' name='price' oneLine  value='from 1500' onChange={handleChangePrice} >
                     от 1500
                     </Radio>
         </div>

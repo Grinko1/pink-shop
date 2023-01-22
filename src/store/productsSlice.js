@@ -105,6 +105,7 @@ const initialState = {
         
     ],
     searchable:[],
+    sortedByPrice:[],
     loading: false
  
   };
@@ -128,6 +129,15 @@ const productsSlice = createSlice({
             state.searchable = result
            
 
+        },
+        sortByPrice(state,action) {
+            if(action.payload == '1000 — 1500'){
+                state.products = state.products.filter((item) =>  item.price < 1500)
+            }else if(action.payload =='from 1500') {
+                state.products = state.products.filter((item) =>  item.price > 1500)
+                        }else if(action.payload  =='all price'){
+                            state.products = state.products
+                        }
         }
     }
 
@@ -135,5 +145,5 @@ const productsSlice = createSlice({
 
 
 const { actions, reducer } = productsSlice
-export const { toggleFavorite, setSearch} = actions
+export const { toggleFavorite, setSearch, sortByPrice} = actions
 export default reducer

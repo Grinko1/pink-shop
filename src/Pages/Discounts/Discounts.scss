@@ -49,3 +49,39 @@
         }
     }
 }
+@media(max-width:720px){
+    .discount{
+        &__container{
+            width: 100%;
+        }
+    }
+}
+@media(max-width:550px){
+    .discount{
+        &__container{
+            width: 100%;
+            margin: auto;
+            .discount-header-icon{
+                width: 100%;
+            }
+            .discount-programms{
+                .discount-programm{
+                    &__left{
+                        img{
+                            width: 120px;
+                        }
+                        .discount-pink-tag{
+                            display: none;
+                        }
+                        .discount-big-text{
+                            font-size: 20px;
+                        }
+                    }
+                    &__right{
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

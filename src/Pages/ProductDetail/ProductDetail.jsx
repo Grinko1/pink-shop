@@ -169,7 +169,10 @@ const ProductDetail = () => {
                 </div>
                 
             </div>
-            <ProductBenefits/>
+            <div className='hide-benefits'>
+                  <ProductBenefits/>
+            </div>
+          
             <PinkHeader pinkText={'Могут понравится'} doubleText={'Тебе могут понравится'}/>
             <div className="product-suggestion">
             {newProducts.map((item) => (

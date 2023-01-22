@@ -33,3 +33,8 @@
     background:var(--pink);
     border: 1px solid var(--pink);
 }
+.form_radio input[type=radio]:disabled + label {
+
+    color: grey;
+    cursor: not-allowed;
+}

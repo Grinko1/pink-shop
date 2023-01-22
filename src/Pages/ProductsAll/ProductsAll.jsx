@@ -1,9 +1,11 @@
+import { useSelector } from 'react-redux';
 import CardItem from '../../Components/CardItem/CardItem';
 import Instagram from '../../Components/InstagramBlock/Instagram';
-import { products } from '../../data/products';
 import './ProductsAll.scss';
 
 const ProductsAll = () => {
+    const {products} = useSelector(state=>state.products)
+
     return (
         <div className='products'>
             <div className="products__container">
@@ -11,7 +13,7 @@ const ProductsAll = () => {
                 <div className="products-list">
                     {
                         products.map((item) => (
-                            <CardItem key={item.id} img={item.img} name={item.name} price={item.price} id={item.id} />
+                            <CardItem key={item.id} img={item.img} name={item.name} price={item.price} id={item.id} isFavorite={item.isFavorite} />
                         ))
                     }
                 </div>

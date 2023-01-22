@@ -22,7 +22,6 @@
                 margin-bottom: 40px;
                 img{
                     width: 112px;
-                    // height: 90px;
                     object-fit: contain;
                 }
                
@@ -36,6 +35,38 @@
         }
         .exchange-inst{
             margin: auto;
+        }
+    }
+}
+@media (max-width:600px){
+    .exchange{
+        &__container{
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width:500px){
+    .exchange{
+        &__container{
+            width: 100%;
+            .exchange-header{
+                max-width: 80%;
+            }
+            .exchange-desc{
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
+                .exchange-desc-item{
+                    width: 100%;
+                    margin: 40px 10px ;
+                    gap: 10px;                   
+                    .exchange-desc-text{
+                    max-width: 220px;
+                    word-break:normal;
+                    }
+                }   
+            }
         }
     }
 }

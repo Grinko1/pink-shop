@@ -35,3 +35,26 @@
         cursor: pointer;
     }
 }
+@media(max-width:460px) {
+    .popular-block{
+        flex-direction: column;
+        .popular-left{
+            display: flex;
+            margin: auto;
+            gap: 15px;
+        }
+        .popular-right{
+            display: none;
+            
+
+        }
+        .popular-center{
+            margin-top: 10%;
+            margin-bottom: 30px;
+            .popular-center_img{
+                width: 100%;
+            }
+        }
+    }
+ 
+}

@@ -5,6 +5,7 @@ import InputSearch from '../InputSerch/InputSearch';
 import NavMenu from '../NavMenu/NavMenu';
 import PullOutCart from '../PullOutCart/PullOutCart';
 import './Header.scss';
+import MobileHeader from './MobileHeader';
 
 const Header = () => {
  const [isOpenSearch, setIsOpenSearch] = useState(false)
@@ -21,7 +22,11 @@ const Header = () => {
 
     return (
       <>
-        <header className='header'>
+      <div className='header-mobile'>
+      <MobileHeader/>
+      </div>
+     <div className="header-desktop">
+     <header className='header'>
           <div className="header_left-block">
               <div className='header_block pink'>
                 <img src="/icons/map.png" alt="" className='header-icon '/>
@@ -45,7 +50,7 @@ const Header = () => {
               <div className='header_block ' onClick={openSearch}>
                 <img src="/icons/search.png" alt="" className='header-icon pink'/>
                 <p>Поиск</p>
-                </div>
+            </div>
                   <div className='header-btns'>
                   <div className='header-btns__cart'>
                       <Link to='/favorite'>
@@ -66,13 +71,15 @@ const Header = () => {
        
             </div>
           
-        </header>
-        {
+        </header> 
+       {
           isOpenSearch ? 
           <InputSearch setIsOpenSearch={setIsOpenSearch} />
           :
           <NavMenu/>
         }
+     </div>
+     
         
         </>
     );

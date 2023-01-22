@@ -37,3 +37,12 @@
         }
     }
 }
+@media(max-width:460px){
+    .booriva{
+        &__container{
+            .booriva-galery{
+                flex-direction: column;
+            }
+        }
+    }
+}

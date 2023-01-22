@@ -10,19 +10,20 @@ const CardItem = ({img, name,price, id=1, isFavorite}) => {
   
     const dispatch = useDispatch()
 
-   
+  
 
     const handleAddFavorited = ()=> {
         dispatch(addToFavorite({id, img, name,price, isFavorite:true}))
         dispatch(toggleFavorite({id}))
-       
+     
+    
     }
 
     const handleDeleteFavorite = () => {
         dispatch(removeFromFavorite({id,  img, name,price,  isFavorite:false}))
         dispatch(toggleFavorite({id}))
-     
-      
+ 
+         
     }
    
     

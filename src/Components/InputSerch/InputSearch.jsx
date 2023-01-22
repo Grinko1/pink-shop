@@ -26,13 +26,18 @@ const dispatch = useDispatch()
     dispatch(setSearch(searchStr))
 
   }
+  const handleCloseSearch = () => {
+    setSearchStr('')
+    setIsOpenSearch(false)
+    navigate('/')
+  }
   
     return (
         <div className="header-search-block" onClick={() => setIsOpenSearch(false)}>
         <div className="header-search-main" onClick={e=> e.stopPropagation()} >
           <img src="/icons/search-grey.png" alt=""/>
           <input className="header-search-input" placeholder='Поиск товаров'  type="text" value={searchStr} onChange={(e )=> handelSearch(e) }/>
-          <img className='header-search-delete' src="/icons/delete.png" alt="" onClick={() => setSearchStr('')}/>
+          <img className='header-search-delete' src="/icons/delete.png" alt="" onClick={handleCloseSearch}/>
         </div>
       </div>
     );

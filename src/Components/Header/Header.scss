@@ -1,3 +1,6 @@
+.header-mobile{
+    display: none;
+}
 .header{
     display: flex;
     align-items: center;
@@ -57,3 +60,26 @@
    }
 }
 
+.mobileMenu{
+    display: flex;
+    .mobileMenu-logo{
+        flex: 1;
+    }
+    .mobileMenu-right{
+        flex: 1;
+        display: flex;
+        align-items: center;
+        .end{
+            position: relative;
+            right: -25px;
+        }
+    }
+}
+@media (max-width: 600px){
+    .header-desktop{
+        display: none;
+    }
+    .header-mobile{
+        display: block;
+    }
+}

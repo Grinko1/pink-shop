@@ -1,5 +1,6 @@
 .new-header__block{
     position: relative;
+    width: 30%;
 }
 .new-header-pink{
     font-family: var(--font-cursive);
@@ -21,6 +22,14 @@
     height: 15px;
     position: absolute;
     bottom: 9px;
-    left: 250px;
+    right: 250px;
    
+}
+@media(max-width: 460px) {
+    .new-header-pink{
+        margin-left: 20px;
+    }
+    .new-header-doble{
+        left: 20px;
+    }
 }
