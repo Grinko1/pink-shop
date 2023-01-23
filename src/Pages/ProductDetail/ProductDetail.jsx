@@ -2,21 +2,22 @@ import './ProductDetail.scss';
 import { useEffect, useState } from 'react';
 import ProductBenefits from '../../Components/ProductBenefits/ProductBenefits';
 import PinkHeader from '../../Components/PinkHeader/PinkHeader';
-import { newProducts } from '../../data/new';
 import CardItem from '../../Components/CardItem/CardItem';
 import Instagram from '../../Components/InstagramBlock/Instagram';
 import SizeTable from '../../Components/SizeTable/SizeTable';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, cartTotal } from '../../store/cartSlice';
 import { useNavigate, useParams } from 'react-router';
 import { products } from '../../data/products';
 
 const ProductDetail = () => {
+    const newProducts = useSelector(state => state.products.new)
     const [product, setProduct] = useState({})
     const [showDots, setShowDots] = useState(true)
     const [showText, setText] = useState(false)
     const [openTable, setOpenTable] = useState(false)
     const navigate = useNavigate()
+
 
     const {id} = useParams()
 
@@ -59,8 +60,6 @@ const ProductDetail = () => {
     const toggleShowMore = () => {
         setText(!showText)
     }
-
-  
 
  
     return (
@@ -176,7 +175,7 @@ const ProductDetail = () => {
             <PinkHeader pinkText={'Могут понравится'} doubleText={'Тебе могут понравится'}/>
             <div className="product-suggestion">
             {newProducts.map((item) => (
-                <CardItem key={item.id} img={item.img} name={item.name} price={item.price} />
+                <CardItem key={item.id} img={item.img} name={item.name} price={item.price} isFavorite={item.isFavorite} id={item.id} />
             ))}
             </div>
            <Instagram/>
