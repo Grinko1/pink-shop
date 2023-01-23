@@ -25,7 +25,7 @@
             flex: 1;      
         }
         .footer-info{
-            flex: 3;
+            flex: 9;
             a{
                 color: white;
             }
@@ -78,6 +78,7 @@
             width: 100%;
             .footer-header{
                 font-size: 15px;
+                margin-top: 10px;
             }
             ul.footer-info{
                 padding: 5px;

@@ -131,12 +131,12 @@ const productsSlice = createSlice({
 
         },
         sortByPrice(state,action) {
-            if(action.payload == '1000 — 1500'){
-                state.products = state.products.filter((item) =>  item.price < 1500)
-            }else if(action.payload =='from 1500') {
-                state.products = state.products.filter((item) =>  item.price > 1500)
-                        }else if(action.payload  =='all price'){
-                            state.products = state.products
+            if(action.payload === '1000 — 1500'){
+                state.sortedByPrice = state.products.filter((item) =>  item.price < 1500)
+            }else if(action.payload ==='from 1500') {
+                state.sortedByPrice = state.products.filter((item) =>  item.price > 1500)
+                        }else if(action.payload  ==='all price'){
+                            state.sortedByPrice = state.products
                         }
         }
     }

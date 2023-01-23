@@ -30,8 +30,9 @@ const Order = () => {
     const [email, setEmail] = useState('');
     const [order, setOrder] = useState('');
     const [pay, setPay] = useState('');
-    const [nextStep, setNextStep] = useState(false)
+    const [nextStep, setNextStep] = useState(false) 
     const [focused, setFocused] = useState(false)
+    const [isError, setIsErrorMsg] = useState(false)
 
     const handleInputPhone = ({ target: { value } }) => setPhone(value);
     const handleInputName = ({ target: { value } }) => setName(value);
@@ -53,7 +54,11 @@ const Order = () => {
      
     },[name, lastName, phone, email, pay, order])
 
-   
+   useEffect(() => {
+       if(focused === true){
+        setIsErrorMsg(true)
+       }
+   },[focused])
 
       const handleCheckForm = () => {
             if(nextStep === true){
@@ -167,6 +172,9 @@ const Order = () => {
                             
                         </div>
                         
+                    </div>
+                    <div className={isError ? "uncorrect" : "hidden"}>
+                        Заполните все поля!
                     </div>
                     <div className="order-btn" onClick={handleCheckForm} >
                     

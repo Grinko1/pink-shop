@@ -30,11 +30,11 @@ const Category = () => {
          setFilteredProducts(products.filter((item) => {
             return item.price < 1500
          }))
-     } else if(price =='from 1500') {
+     } else if(price ==='from 1500') {
          setFilteredProducts(products.filter((item) => {
              return item.price > 1500
           }))
-     }else if(price =='all price'){
+     }else if(price ==='all price'){
          setFilteredProducts(products)
      }
 },[price, products])

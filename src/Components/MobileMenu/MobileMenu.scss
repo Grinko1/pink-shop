@@ -2,7 +2,6 @@
     border-top: 1px solid var(--pink);
     background-color: white;
     height: 70px;
-    display: flex;
     align-items: center;
     justify-content: space-around;
     z-index: 999999;
@@ -20,4 +19,12 @@
         }
     }
   
+}
+.show{
+    display: none;
+}
+@media(max-width:600px){
+    .show{
+        display: flex;
+    }
 }

@@ -8,7 +8,7 @@ const MobileMenu = () => {
     const [activeCart, setActiveCart] = useState(false)
     const [openMenu, setOpenMenu] = useState(false)
     return (
-        <div className='mobile-menu'>
+        <div className='mobile-menu show'>
       
              <div className='mobile-menu__item' onClick={() => setOpenMenu(!openMenu)}>
              <img src="/icons/icon_menu.png" alt=""/>
@@ -27,7 +27,7 @@ const MobileMenu = () => {
              
         <PullOutCart active={activeCart} setActiveMenu={setActiveCart}/>
         
-   <PullOutMobileMenu active={openMenu} setActiveMenu={setOpenMenu}/>
+         <PullOutMobileMenu active={openMenu} setActiveMenu={setOpenMenu}/>
         </div>
     );
 };

@@ -119,6 +119,13 @@
       position: relative;
   }
 }
+
+@media(max-width: 1150px) {
+
+    .photomenu {
+        flex-direction: column;
+    }
+}
 @media(max-width: 460px) {
 
     .photomenu {
